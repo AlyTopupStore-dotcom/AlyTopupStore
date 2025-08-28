@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin AlyTopupStore</title>
+<link rel="stylesheet" href="style.css">
+<script>
+function loadDiamond() {
+  fetch('diamond.json')
+    .then(response => response.json())
+    .then(data => {
+      const gameSelect = document.getElementById('game');
+      const diamondTable = document.getElementById('diamondTable');
+      diamondTable.innerHTML = '';
+      const game = gameSelect.value;
+      data[game].forEach((item, idx) => {
+        let row = `<tr>
+          <td>${idx+1}</td>
+          <td>${item.diamond}</td>
+          <td>${item.price}</td>
+        </tr>`;
+        diamondTable.innerHTML += row;
+      });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', loadDiamond);
+</script>
+</head>
+<body>
+<h2>Admin Panel - AlyTopupStore</h2>
+<label>Pilih Game:</label>
+<select id="game" onchange="loadDiamond()">
+<option value="FF Ori">FF Ori</option>
+<option value="FF Max">FF Max</option>
+</select>
+
+<table border="1" cellpadding="5">
+<tr><th>No</th><th>Diamond</th><th>Price</th></tr>
+<tbody id="diamondTable"></tbody>
+</table>
+</body>
+</html>
