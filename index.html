@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlyTopupStore</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<header>
+<h1>AlyTopupStore</h1>
+<p>Topup FF Ori & FF Max - All Packages RM10</p>
+</header>
+
+<div class="container">
+<form id="topupForm">
+<label>Nama:</label><br>
+<input type="text" name="user_name" required><br>
+
+<label>Pilih Game:</label><br>
+<select id="game" name="game" required>
+<option value="FF Ori">FF Ori</option>
+<option value="FF Max">FF Max</option>
+</select><br>
+
+<label>Pilih Diamond:</label><br>
+<select id="diamond" name="diamond_id" required></select><br>
+
+<label>Payment Method:</label><br>
+<select name="payment_method" required>
+<option value="TNG">TNG e-wallet</option>
+<option value="Bank">Bank Transfer</option>
+</select><br><br>
+
+<button type="submit">Topup Sekarang</button>
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+// Simulasi submit (karena no backend, hanya tampil info)
+document.getElementById('topupForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = this.user_name.value;
+  const game = this.game.value;
+  const diamond = this.diamond.value;
+  const payment = this.payment_method.value;
+
+  let payInfo = payment === "TNG" ? "Scan QR atau hantar ke TNG: 01127064841" : "Bank Transfer ke akaun: 123-456-7890";
+  document.getElementById('result').innerHTML = `<h3>Terima kasih ${name}!</h3>
+  <p>Anda pilih ${diamond} DM untuk ${game}</p>
+  <p>Payment Method: ${payment}</p>
+  <p>${payInfo}</p>`;
+});
+</script>
+</body>
+</html>
