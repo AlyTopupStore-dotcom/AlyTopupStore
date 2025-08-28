@@ -1,0 +1,8 @@
+body { font-family: Arial; background:#111; color:#fff; margin:0; }
+header { text-align:center; padding:20px; background: #4B0082; }
+.container { width:90%; margin:auto; padding:20px; }
+button { background:#FF0000; color:#fff; padding:10px; border:none; border-radius:5px; cursor:pointer; }
+select, input { padding:5px; margin:5px; border-radius:5px; border:none; }
+table { width:100%; border-collapse: collapse; margin:20px 0; }
+th, td { padding:10px; text-align:center; border:1px solid #444; }
+h1,h2,h3 { color:#FF4500; }
